@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.reactivestax</groupId>
-	<artifactId>devopsautomation</artifactId>
+	<artifactId>devops-automation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>devopsautomation</name>
+	<name>devops-automation</name>
 	<description>Demo project for Spring Boot with DevOpsAutomation</description>
 	<properties>
 		<java.version>11</java.version>
@@ -40,6 +40,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>devops-integration</finalName>
 	</build>
 
 </project>
