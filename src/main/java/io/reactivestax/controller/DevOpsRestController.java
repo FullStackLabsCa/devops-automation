@@ -8,6 +8,7 @@ public class DevOpsRestController {
 
     @GetMapping
     public String getMessage(){
-        return "DevOpsAutomation Controller!";
+        String message = "DevOpsAutomation Controller!";
+        return message+" new message!";
     }
 }
