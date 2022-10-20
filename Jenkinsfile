@@ -37,4 +37,13 @@ pipeline {
             }
         }
     }
+    post {
+            always {
+                // script that should run always after the pipeline.
+                //junit '**/target/*.xml'
+            }
+            failure {
+                mail to: skillbazar@gmail.com, subject: 'The Pipeline failed :('
+            }
+        }
 }
