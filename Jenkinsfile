@@ -41,9 +41,11 @@ pipeline {
             always {
                 // script that should run always after the pipeline.
                 //junit '**/target/*.xml'
-            }
-            failure {
-                mail to: skillbazar@gmail.com, subject: 'The Pipeline failed :('
+               script {
+                    if (currentBuild.currentResult == 'FAILURE') {
+                      step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "skillbazar@gmail.com", sendToIndividuals: true])
+               }
             }
         }
+    }
 }
