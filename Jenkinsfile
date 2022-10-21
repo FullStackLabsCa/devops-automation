@@ -29,6 +29,13 @@ pipeline {
                 }
             }
         }
+        stage('Scan Docker Image') {
+                    steps {
+                        script{
+                          sh "trivy rajat003/devops-automation"
+                        }
+                    }
+                }
         stage('Upload Docker Image') {
             steps {
                 script{
