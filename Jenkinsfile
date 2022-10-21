@@ -41,10 +41,12 @@ pipeline {
             always {
                 // script that should run always after the pipeline.
                 //junit '**/target/*.xml'
-               script {
-               //     if (currentBuild.currentResult == 'FAILURE') {
-                      step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "skillbazar@gmail.com", sendToIndividuals: true])
-               //}
+//                script {
+//                    if (currentBuild.currentResult == 'FAILURE') {
+//                       step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "skillbazar@gmail.com", sendToIndividuals: true])
+//                }
+                   emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+
             }
         }
     }
