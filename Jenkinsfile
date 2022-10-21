@@ -32,7 +32,7 @@ pipeline {
         stage('Scan Docker Image') {
                     steps {
                         script{
-                          sh "trivy rajat003/devops-automation"
+                          sh "trivy image rajat003/devops-automation"
                         }
                     }
                 }
