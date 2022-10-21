@@ -7,11 +7,14 @@ pipeline {
     }
 
     stages {
+        stage('Checkout Code'){
+            steps{
+                    // Checkout code from a GitHub repository
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/FullStackLabsCa/devops-automation']]])
+            }
+        }
         stage('Build') {
             steps {
-                // Checkout code from a GitHub repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/FullStackLabsCa/devops-automation']]])
-
                 // Run Maven on a Unix agent.
                 sh "mvn clean install"
 
